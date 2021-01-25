@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+#button-wrapper {
+    align-self: center;
+    align-content: center;
+    flow:grid(1 2 3, 4 5 6, 7 8 9)
+    
+}
+
+.button-wrapper{
+    margin: 25vh 75wh;
+    width: 50%;
+    padding: 10px;
+}
+
+button {
+    background: aqua;
+    color: black;
+}
+button:disabled {
+    background: color(243, 243, 211, 5);
+}
+h1 {
+    visibility: hidden;
+}

@@ -1,0 +1,125 @@
+var arr = ["-1", "-2", "-3", "-4", "-5", "-6", "-7", "-8", "-9"]
+var symbol = ""
+
+event click $(button) {
+        if (this.text == "_") {
+            this.text = "X";
+            symbol = "X"
+            this.state.disabled = true;
+            winner();
+
+            var id = this.id.toInteger()
+            var col, row
+            if(id % 3 == 0) {
+                col = 2
+            }
+            else if(id % 3 == 1) {
+                col = 0
+            }
+            else {
+                col = 1
+            }
+            row = (id - col) / 3
+            //this.state.disabled = true;
+
+            var curr = self.select("#10");
+            curr.text = row + " " + col;
+            var a = view.ai().toString();
+            if(a == 10){
+                view.msgbox(#alert, "PLAYER WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } else if (a == 0) {
+                view.msgbox(#alert, "AI WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } else if(self.select("#" + a.toString()).text == "_") {
+                self.select("#" + a.toString()).state.disabled = true;
+                self.select("#" + a.toString()).text = "O";
+                symbol = "O";
+            }
+            winner();
+        }
+}
+
+function winner(){
+    //view.msgbox(#alert, "das")
+    if ((arr[0] == arr[1] && arr[1] == arr[2]) || 
+        (arr[3] == arr[4] && arr[4] == arr[5]) || 
+        (arr[6] == arr[7] && arr[7] == arr[8])) {
+            if(symbol == "X") {
+                view.msgbox(#alert, "PLAYER WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } 
+            if(symbol == "O") {
+                view.msgbox(#alert, "AI WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+            else {
+                view.msgbox(#alert, "DRAW")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+        }
+    if ((arr[0] == arr[3] && arr[3] == arr[6]) || 
+        (arr[1] == arr[4] && arr[4] == arr[7]) || 
+        (arr[2] == arr[5] && arr[5] == arr[8])) {
+            if(symbol == "X") {
+                view.msgbox(#alert, "PLAYER WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } 
+            if(symbol == "O") {
+                view.msgbox(#alert, "AI WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+            else {
+                view.msgbox(#alert, "DRAW")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+        }
+    if ((arr[0] == arr[4] && arr[4] == arr[8]) || 
+        (arr[2] == arr[4] && arr[4] == arr[6])) {
+            if(symbol == "X") {
+                view.msgbox(#alert, "PLAYER WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } 
+            if(symbol == "O") {
+                view.msgbox(#alert, "AI WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+            else {
+                view.msgbox(#alert, "DRAW")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+        }
+}

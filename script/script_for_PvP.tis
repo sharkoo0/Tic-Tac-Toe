@@ -1,0 +1,105 @@
+var turns = 0
+
+var arr = ["-1", "-2", "-3", "-4", "-5", "-6", "-7", "-8", "-9"]
+var symbol = ""
+
+event click $(button) {
+    winner();
+        if(this.text = "_"){
+            if(turns % 2) {
+                this.text = "X";
+                this.state.disabled = true;
+                arr[this.id.toInteger() - 1] = this.text;
+                symbol = "X"
+                //stdout.println(arr);
+            }
+            else {
+                this.text = "O";
+                this.state.disabled = true;
+                arr[this.id.toInteger() - 1] = this.text;
+                //stdout.println(arr);
+                symbol = "O"
+            }
+        }
+        this.state.disabled = true;
+        turns++;
+        winner();
+}
+
+function winner(){
+    //view.msgbox(#alert, "das")
+    if ((arr[0] == arr[1] && arr[1] == arr[2]) || 
+        (arr[3] == arr[4] && arr[4] == arr[5]) || 
+        (arr[6] == arr[7] && arr[7] == arr[8])) {
+            if(symbol == "X") {
+                view.msgbox(#alert, "PLAYER 'X' WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } 
+            if(symbol == "O") {
+                view.msgbox(#alert, "PLAYER 'O' WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+            else {
+                view.msgbox(#alert, "DRAW")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+        }
+    if ((arr[0] == arr[3] && arr[3] == arr[6]) || 
+        (arr[1] == arr[4] && arr[4] == arr[7]) || 
+        (arr[2] == arr[5] && arr[5] == arr[8])) {
+            if(symbol == "X") {
+                view.msgbox(#alert, "PLAYER 'X' WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } 
+            if(symbol == "O") {
+                view.msgbox(#alert, "PLAYER 'O' WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+            else {
+                view.msgbox(#alert, "DRAW")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+        }
+    if ((arr[0] == arr[4] && arr[4] == arr[8]) || 
+        (arr[2] == arr[4] && arr[4] == arr[6])) {
+            if(symbol == "X") {
+                view.msgbox(#alert, "PLAYER 'X' WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            } 
+            if(symbol == "O") {
+                view.msgbox(#alert, "PLAYER 'O' WINS")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+            else {
+                view.msgbox(#alert, "DRAW")
+                var curr = self.select("#10");
+                curr.text = "stop";
+                view.close(true);
+                return;
+            }
+        }
+}
