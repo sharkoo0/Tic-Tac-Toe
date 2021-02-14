@@ -1,6 +1,6 @@
 package algorithms
 
-import "../game"
+import "github.com/sharkoo0/Tic-Tac-Toe/pkg/game"
 import "math"
 
 //AlphaBeta -> The alpha-beta algorithm 

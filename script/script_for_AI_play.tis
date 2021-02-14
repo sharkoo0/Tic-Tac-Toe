@@ -2,7 +2,9 @@ var arr = ["-1", "-2", "-3", "-4", "-5", "-6", "-7", "-8", "-9"]
 var symbol = ""
 
 event click $(button) {
+    stdout.println("some shit");
         if (this.text == "_") {
+            stdout.println("dasjk");
             this.text = "X";
             symbol = "X"
             this.state.disabled = true;
@@ -24,7 +26,7 @@ event click $(button) {
 
             var curr = self.select("#10");
             curr.text = row + " " + col;
-            var a = view.ai().toString();
+            var a = view.AIPlays().toString();
             if(a == 10){
                 view.msgbox(#alert, "PLAYER WINS")
                 var curr = self.select("#10");
